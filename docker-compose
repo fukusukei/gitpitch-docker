@@ -1,0 +1,15 @@
+version: '2'
+services:
+  gitpitch:
+    build:
+      context: .
+      args:
+        - HTTP_PROXY=${http_proxy}
+        - HTTPS_PROXY=${https_proxy}
+        - NO_PROXY=${no_proxy}
+    image: gitpitch/gitpitch:latest
+    restart: always
+    ports:
+      - '8001:9000'
+    volumes:
+      - ./conf:/opt/gitpitch/conf2
