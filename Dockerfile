@@ -44,9 +44,7 @@ RUN apk add --no-cache --update-cache \
     cd .. && \
     rm -rf workspace/gitpitch/ && \
     mv /opt/server-${GITPICH_ZIPVERSION} /opt/gitpitch && \
-    mkdir -p /opt/gitpitch/conf2 && \
-    cp /opt/gitpitch/conf/application.conf /opt/gitpitch/conf2/application.conf && \
     apk del --purge -r build-dependencies
 # RUN END
 
-CMD ["/opt/gitpitch/bin/server","-Dconfig.file=/opt/gitpitch/conf2/application.conf"]
+CMD ["/opt/gitpitch/bin/server","-Dconfig.file=/opt/gitpitch/custom/production.conf"]
